@@ -4,4 +4,4 @@ RUN apt-get update -y && \
 WORKDIR /app
 COPY main.py /app/main.py
 CMD ["gunicorn", "--workers", "10", "--bind", "[::]:5000", "main:app", "--timeout", "90"]
-#EXPOSE 5000/tcp
+EXPOSE 5000/tcp

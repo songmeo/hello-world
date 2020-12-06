@@ -4,5 +4,15 @@ services:
   app:
     restart: always
     build:
+      dockerfile: app/Dockerfile
       context: .
     network_mode: host
+
+  nginx:
+    build:
+      dockerfile: nginx/Dockerfile
+      context: .
+    ports:
+      - "443:443"
+    volumes: 
+     - /home/ubuntu/helloworld/nginx/certs:/etc/nginx/certs
